@@ -1,0 +1,132 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inria Sans" , sans-serif ;
+}
+
+body{
+  height: 100vh;
+  background: #383838;
+  background-size: 100% 50%;
+}
+
+.container-dices{
+  position: absolute;
+  transform: translate(-50% , -50%);
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.container-dices img{
+  width: 500px;
+}
+
+
+.dice-sum {
+  font-size: 18px;
+  color: #fff;
+  margin-top: 40px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.container-dices img{
+  width: 200px;
+}
+
+.container-controller p span{
+  color: #e92e3d;
+}
+.container-controller p{
+  font-size: 40px;
+}
+
+.container-controller label {
+  display: block;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.container-controller input, .container-controller select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.container-controller h1 {
+  color: #e92e3d;
+  margin-bottom: 20px;
+}
+
+.container-controller{
+  max-width: 400px;
+  overflow-y: auto;
+  padding: 50px;
+  border: 3px solid #e92e3d;
+  position: absolute;
+  transform: translate(-50% , -50%);
+  top: 50%;
+  left: 20%;
+  background-color: #555555 ;
+  box-shadow: 0 15px  35px rgba(233, 46, 61, 0.40);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.dice-wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+p{
+  font-size: 24px;
+  margin: 30px 0;
+  font-weight: 700;
+}
+
+button{
+  background-color: #e92e3d;
+  border: 1px solid white;
+  outline: none;
+  color: white;
+  padding: 15px 0;
+  width: 150px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#coin-balance {
+  font-weight: bold;
+  color: #e92e3d;
+}
