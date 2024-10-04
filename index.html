@@ -1,45 +1,80 @@
-<!doctype html>
-<html class="no-js" lang="">
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Jogo de Probabilidade</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-  <meta name="theme-color" content="#fafafa">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Dados</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-
 <body>
-<div class="container-dices" id="dice-container">
-</div>
-<p id="dice-sum" class="dice-sum">Soma dos Dados: -</p>
+    <div class="container">
+        <!-- Accordion -->
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Informações sobre o Jogo
+                        </button>
+                    </h2>
+                </div>
 
-<div class="container-controller">
- 
-  <p>Saldo de Moedas: <span id="coin-balance">100</span></p>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Neste jogo, você irá lançar 6 dados e deve adivinhar qual será a soma total das faces que aparecerem voltadas para cima. A probabilidade de acertar a soma depende de quantas combinações diferentes dos dados resultam na sua adivinhação.
 
+                        <h4>Probabilidade de Acertar</h4>
+                        <p>Total de Combinações Possíveis: Ao lançar 6 dados, cada dado pode resultar em uma face de 1 a 6. Portanto, o número total de combinações possíveis é \(6^6 = 46.656\).</p>
 
-  <label for="bet-amount">Quantidade de Moedas para Apostar:</label>
-  <input type="number" id="bet-amount" min="1" value="10">
+                        <p>Contagem de Combinações que Resultam na Adivinhação: O jogo calcula quantas combinações de resultados dos dados somam exatamente ao número que você adivinhou. Por exemplo, se você adivinhar que a soma será 12, o jogo verifica todas as combinações possíveis dos dados para contar quantas delas resultam em 12. Neste caso, existem 455 combinações que resultam na soma de 12.</p>
 
-  <label for="guess">Adivinhe a Soma:</label>
-  <input type="number" id="guess" placeholder="Entre com um valor">
+                        <h4>Cálculo da Probabilidade:</h4>
+                        <p>A probabilidade de você acertar a soma é dada pela fórmula:</p>
+                        <p>Probabilidade = \(\frac{\text{Número de combinações que resultam na adivinhação}}{\text{Total de combinações possíveis}} \times 100\)</p>
+                        <p>Por exemplo, se houver 455 combinações que resultam na soma de 12, a probabilidade de acertar essa soma ao adivinhar seria:</p>
+                        <p>Probabilidade = \(\frac{455}{46.656} \times 100 \approx 0,9752\%\)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <button id="play-button">JOGAR DADOS</button>
+        <!-- Área do Jogo -->
+        <div class="game-area">
+            <div class="container-dices" id="dice-container"></div>
+            <div class="container-controller">
+              <h1>Betting Game</h1>
+              <label for="dice-count">Número de Dados:</label>
+              <select id="dice-count">
+                  <option value="1">1 Dado (um dos dados ficará imóvel)</option>
+                  <option value="2">2 Dados</option>
+                  <option value="3">3 Dados</option>
+                  <option value="4">4 Dados</option>
+                  <option value="5">5 Dados</option>
+                  <option value="6">6 Dados</option>
+              </select>
+              <label for="bet-amount">Aposta:</label>
+              <input type="number" id="bet-amount" value="2" min="1">
+              <label for="guess">Sua Adivinhação:</label>
+              <input type="number" id="guess">
+              <button id="play-button">Jogar</button>
+              <p id="coin-balance">Saldo: 100 moedas</p>
+              <p id="probability">Probabilidade de acertar: 0%</p>
+              <div id="dice-sum" class="dice-sum"></div>
+              <div id="result"></div>
+              <!-- Adicionando a roleta -->
+              <h4>Resultado na Roleta:</h4>
+<div id="roulette" class="roulette"></div>
 
-  
-  <p id="result"></p>
-</div>
+          </div>
 
-<script src="js/app.js" defer></script>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
