@@ -1,31 +1,41 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Inria Sans" , sans-serif ;
+  font-family: "Inria Sans", sans-serif;
 }
 
-body{
+body {
   height: 100vh;
-  background: #383838;
-  background-size: 100% 50%;
+  background: #383838; /* Fundo escuro n funciona vey */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.container-dices{
-  position: absolute;
-  transform: translate(-50% , -50%);
-  top: 50%;
-  left: 50%;
+.container {
   display: flex;
+  width: 100%;
+  justify-content: center; /* Centraliza o container */
+}
+
+.game-area {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
-.container-dices img{
-  width: 500px;
+.container-dices {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
+.container-dices img {
+  width: 200px;
+}
 
 .dice-sum {
   font-size: 18px;
@@ -35,16 +45,12 @@ body{
   text-align: center;
 }
 
-
-.container-dices img{
-  width: 200px;
-}
-
-.container-controller p span{
+.container-controller p span {
   color: #e92e3d;
 }
-.container-controller p{
-  font-size: 40px;
+
+.container-controller p {
+  font-size: 24px;
 }
 
 .container-controller label {
@@ -54,7 +60,8 @@ body{
   color: #fff;
 }
 
-.container-controller input, .container-controller select {
+.container-controller input,
+.container-controller select {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -68,37 +75,25 @@ body{
   margin-bottom: 20px;
 }
 
-.container-controller{
+.container-controller {
   max-width: 400px;
   overflow-y: auto;
-  padding: 50px;
-  border: 3px solid #e92e3d;
-  position: absolute;
-  transform: translate(-50% , -50%);
-  top: 50%;
-  left: 20%;
-  background-color: #555555 ;
-  box-shadow: 0 15px  35px rgba(233, 46, 61, 0.40);
+  padding: 20px;
+  background-color: #555555; /* Fundo escuro */
+  box-shadow: 0 15px 35px rgba(233, 46, 61, 0.40);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
-.dice-wrapper{
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-p{
+p {
   font-size: 24px;
   margin: 30px 0;
   font-weight: 700;
 }
 
-button{
+button {
   background-color: #e92e3d;
   border: 1px solid white;
   outline: none;
@@ -129,4 +124,87 @@ input {
 #coin-balance {
   font-weight: bold;
   color: #e92e3d;
+}
+
+#probability {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.accordion {
+  position: absolute; /* Permite a sobreposição */
+  z-index: 10; /* Certifique-se de que esteja na frente */
+  top: 20px; /* Distância do topo */
+  left: 20px; /* Distância da esquerda */
+  width: 600px; /* Aumente a largura para 600px */
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9); /* Fundo claro e semitransparente */
+  border: none; /* Remove a borda padrão do Bootstrap */
+  border-radius: 5px; /* Arredondamento */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.card-header {
+  background-color: #e92e3d; /* Fundo do cabeçalho */
+  color: white; /* Cor do texto */
+}
+
+.btn-link {
+  color: #fff; /* Cor do botão */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.roulette {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebrar linha se necessário */
+  justify-content: flex-start; /* Alinhamento à esquerda */
+  margin-top: 20px;
+}
+
+.correct-guess {
+  color: green;
+  font-weight: bold;
+  font-size: 24px; /* Ajuste o tamanho conforme desejado */
+}
+
+.winning {
+  background-color: green; /* Cor de fundo verde */
+  color: white; /* Cor do texto */
+  font-weight: bold;
+  border: 2px solid darkgreen; /* Borda escura */
+}
+
+.roulette-square {
+  width: 50px; /* Largura de cada quadrado */
+  height: 50px; /* Altura de cada quadrado */
+  border: 1px solid #fff; /* Borda branca */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2px; /* Espaçamento entre quadrados */
+  color: #fff; /* Cor do texto */
+  font-weight: bold; /* Negrito para o texto */
+}
+
+/* Cores alternadas */
+.roulette-square:nth-child(odd) {
+  background-color: #e92e3d; /* Vermelho */
+}
+
+.roulette-square:nth-child(even) {
+  background-color: #000; /* Preto */
+}
+
+
+
+.card-body {
+  color: #333; /* Cor do texto no corpo */
 }
